@@ -1,0 +1,60 @@
+﻿<Window x:Class="MAS_Implementacja.Views.TrainingType"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAS_Implementacja.Views"
+        mc:Ignorable="d"
+        Title="TrainingType" Height="1024.5" Width="714">
+    <Grid Height="998" VerticalAlignment="Top" Margin="0,0,-8,-5">
+        <Grid.Background>
+            <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Universal\Background.png"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Center" Height="75" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="1920" Margin="-4,0"/>
+        <Button Content="DREAM'S" FontSize="50" HorizontalAlignment="Left" Margin="-1,-4,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" />
+        <Button Content="GYM" FontSize="25" HorizontalAlignment="Left" Margin="196,23,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontWeight="Bold" Height="40" Width="116" />
+
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="44" Margin="0,953,0,0" Stroke="Black" VerticalAlignment="Top" Width="714"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,967,0,0" TextWrapping="Wrap" Text="DREAM'SGYM © 2021 Wszystkie prawa zastrzeżone" VerticalAlignment="Top" Foreground="#FF514E4E" FontSize="15"/>
+        <Rectangle Fill="black" HorizontalAlignment="center" Height="790" Margin="48,144,50,0" Stroke="Black" VerticalAlignment="Top" Width="616"/>
+
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="54,174,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Nazwa typu treningu:" HorizontalAlignment="Left" Margin="54,144,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtNazwaTypu" Height="24" Margin="60,192,74,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="54,260,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Liczba serii:" HorizontalAlignment="Left" Margin="54,228,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtLiczbaSerii" Height="24" Margin="60,276,74,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="54,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Liczba Powtórzeń" HorizontalAlignment="Left" Margin="54,314,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16" Width="134"/>
+        <TextBox x:Name="txtLiczbaPowtorzen" Height="22" Margin="60,362,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="54,430,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Metoda treningowa:" HorizontalAlignment="Left" Margin="54,398,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtMetodaTreningowa" Height="24" Margin="60,446,76,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="54,514,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Akcesoria treningowe:" HorizontalAlignment="Left" Margin="54,482,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtAkcesoriaTreningowe" Height="22" Margin="60,532,76,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="54,598,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Maszyny do treningu siłowego:" HorizontalAlignment="Left" Margin="48,568,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtMaszynySilowe" Height="22" Margin="62,614,76,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Button Content="Dodaj typ treningu" HorizontalAlignment="Left" Margin="221,833,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.487,0.9" Height="40" Background="#FF518B17" FontSize="16" Click="AddTrainingType" />
+        <Button Content="Cofnij" HorizontalAlignment="Left" Margin="221,878,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.487,0.9" Height="40" Background="#FF991D1D"  FontSize="16" Click="GoBack"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="80,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Foreground="#FFB22D2D" FontWeight="Bold"><Run Text="Formularz "/><Run Text="typu treningu"/></TextBlock>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="54,682,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Maszyny do cardio:" HorizontalAlignment="Left" Margin="48,652,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtMaszynyCardio" Height="22" Margin="62,698,76,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="54,766,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Wyposażenie do cardio-fitness:" HorizontalAlignment="Left" Margin="48,736,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtWyposazenieCardioFitness" Height="22" Margin="62,782,76,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+
+
+    </Grid>
+</Window>

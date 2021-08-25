@@ -1,0 +1,69 @@
+﻿<Window x:Class="MAS_Implementacja.Views.NewClientAddForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAS_Implementacja.Views"
+        mc:Ignorable="d"
+        Title="NewClientAddForm" Height="1459.666" Width="714">
+    <Grid Height="1431" VerticalAlignment="Top" Margin="0,0,-8,-2">
+        <Grid.Background>
+            <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Universal\Background.png"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Center" Height="75" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="1920" Margin="-4,0"/>
+        <Button Content="DREAM'S" FontSize="50" HorizontalAlignment="Left" Margin="-1,-4,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" />
+        <Button Content="GYM" FontSize="25" HorizontalAlignment="Left" Margin="196,23,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontWeight="Bold" Height="40" Width="116" />
+
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="58" Margin="0,1373,0,0" Stroke="Black" VerticalAlignment="Top" Width="714"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,1387,0,0" TextWrapping="Wrap" Text="DREAM'SGYM © 2021 Wszystkie prawa zastrzeżone" VerticalAlignment="Top" Foreground="#FF514E4E" FontSize="15"/>
+        <Rectangle Fill="black" HorizontalAlignment="center" Height="1199" Margin="48,144,50,0" Stroke="Black" VerticalAlignment="Top" Width="616"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,184,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Imie:" HorizontalAlignment="Left" Margin="56,152,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtImie" Height="22" Margin="62,200,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,268,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Nazwisko:" HorizontalAlignment="Left" Margin="56,238,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtNazwisko" Height="24" Margin="62,286,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,354,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="DataUrodzenia:" HorizontalAlignment="Left" Margin="56,322,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtDataUrodzenia" Height="24" Margin="62,370,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,438,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="AdresEmail:" HorizontalAlignment="Left" Margin="56,408,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16" Width="191"/>
+        <TextBox x:Name="txtAdresEmail" Height="22" Margin="62,456,70,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,614,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="AdresZamieszkania:" HorizontalAlignment="Left" Margin="56,582,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtAdresZamieszkania" Height="24" Margin="62,630,74,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="179,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="40" Foreground="#FFB22D2D" FontWeight="Bold" Text="Formularz klienta"/>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,700,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Pesel:" HorizontalAlignment="Left" Margin="56,668,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtPesel" Height="22" Margin="62,716,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,784,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="RodzajDokumentuOsobistego:" HorizontalAlignment="Left" Margin="56,754,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtRodzajDokumentu" Height="24" Margin="62,802,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,870,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="ZaświadczenieOdLekarza:" HorizontalAlignment="Left" Margin="56,838,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtZaswiadczenieOdLekarza" Height="24" Margin="62,886,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,954,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="ZgodaDotyczacaRegulaminuKlubu:" HorizontalAlignment="Left" Margin="56,924,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16" Width="256"/>
+        <TextBox x:Name="txtZgodaDoTyczacaRegulaminu" Height="22" Margin="62,972,70,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,1040,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="NazwaKarnetu:" HorizontalAlignment="Left" Margin="56,1008,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtNazwaKarnetu" Height="24" Margin="62,1056,74,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,1127,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="RodzajKarnetu:" HorizontalAlignment="Left" Margin="56,1095,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtRodzajKarnetu" Height="24" Margin="62,1143,74,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="56,528,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="TelefonKontaktowy:" HorizontalAlignment="Left" Margin="56,496,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtPhoneNumber" Height="24" Margin="62,544,74,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Button Content="Dodaj klienta" HorizontalAlignment="Left" Margin="231,1206,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.487,0.9" Height="40" Background="#FF518B17" FontSize="16" Click="AddNewClientData" />
+        <Button Content="Cofnij" HorizontalAlignment="Left" Margin="231,1251,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.487,0.9" Height="40" Background="#FF991D1D"  FontSize="16" Click="GoBack"/>
+
+    </Grid>
+</Window>
+

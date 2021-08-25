@@ -1,0 +1,62 @@
+﻿<Window x:Class="MAS_Implementacja.Views.OfferWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAS_Implementacja.Views"
+        mc:Ignorable="d"
+        Title="OfferWindow" Height="875.833" Width="1366.5">
+    <Grid VerticalAlignment="Top" Margin="0,0,0,-31">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="523*"/>
+            <RowDefinition Height="427*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Universal\Background.png"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Center" Height="75" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="1358"/>
+        <Button Content="DREAM'S" FontSize="50" HorizontalAlignment="Left" Margin="-1,-4,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" />
+        <Button Content="GYM" FontSize="25" HorizontalAlignment="Left" Margin="196,23,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontWeight="Bold" Height="40" Width="116" />
+        <Button Content="STRONA GŁÓWNA" FontSize="35" HorizontalAlignment="Left" Margin="957,10,0,0" VerticalAlignment="Top"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" Click="OpenMainPage"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="598" Margin="44,169,0,0" Stroke="Black" VerticalAlignment="Top" Width="1272" Grid.RowSpan="2"/>
+
+        <Rectangle HorizontalAlignment="Center" Height="225" Margin="113,243,923,0" Stroke="Black" VerticalAlignment="Top" Width="322">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\OfferReduced.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle HorizontalAlignment="Center" Height="225" Margin="522,243,514,0" Stroke="Black" VerticalAlignment="Top" Width="322">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\OfferStudent.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle HorizontalAlignment="Center" Height="224" Margin="923,244,113,0" Stroke="Black" VerticalAlignment="Top" Width="322">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\OfferNormal.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Image HorizontalAlignment="Left" Height="75" Margin="1284,0,0,0" VerticalAlignment="Top" Width="64" Source="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Universal\User.png"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="44" Margin="0,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="1358" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,350,0,0" TextWrapping="Wrap" Text="DREAM'SGYM © 2021 Wszystkie prawa zastrzeżone" VerticalAlignment="Top" Foreground="#FF514E4E" FontSize="15" Grid.Row="1"/>
+
+
+        <Button Content="Karnet ulgowy" HorizontalAlignment="Left" Margin="196,206,0,0" VerticalAlignment="Top" Width="138" Height="30" Grid.Row="1" Click="MoveToReducedAddForm" Background="#FF518B17"/>
+        <Button Content="Karnet studencki" HorizontalAlignment="Left" Margin="608,206,0,0" VerticalAlignment="Top" Width="138" Height="30" Grid.Row="1" Click="MoveToStudentAddForm" Background="#FF518B17"/>
+        <Button Content="Karnet normalny" HorizontalAlignment="Left" Margin="1013,206,0,0" VerticalAlignment="Top" Width="138" Height="30" Grid.Row="1" Click="ShowNormalAddForm" Background="#FF518B17"/>
+        <Button Content="Wróć na strone główną" HorizontalAlignment="Left" Margin="608,248,0,0" VerticalAlignment="Top" Width="138" Height="30" Grid.Row="1" Click="GoBack" Background="#FF991D1D"/>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="462,89,0,0" TextWrapping="Wrap" Text="Oferta dla klientów" VerticalAlignment="Top" Foreground="#FFB22D2D" FontSize="50" RenderTransformOrigin="0.506,0.142" FontWeight="Bold"/>
+        <Rectangle HorizontalAlignment="Left" Height="197" Margin="113,468,0,0" Stroke="Black" Fill="#FFACACAC" VerticalAlignment="Top" Width="316" Grid.RowSpan="2"></Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="197" Margin="522,468,0,0" Stroke="Black" Fill="#FFACACAC" VerticalAlignment="Top" Width="316" Grid.RowSpan="2"></Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="197" Margin="923,468,0,0" Stroke="Black" Fill="#FFACACAC" VerticalAlignment="Top" Width="316" Grid.RowSpan="2"></Rectangle>
+        <TextBlock HorizontalAlignment="Left" Margin="122,5,0,0" TextWrapping="Wrap" Text="Karnet ulgowy – przysługuje: uczniom od lat 16 do lat 19 (za każdorazowym okazaniem legitymacji szkolnej), rencistom, emerytom (za każdorazowym okazaniem legitymacji),  kombatantom (za każdorazowym okazaniem legitymacji), osobom niepełnosprawnym z orzeczonym znacznym lub umiarkowanym stopniem niepełnosprawności (za każdorazowym okazaniem legitymacji)." VerticalAlignment="Top" Height="192" Width="296" Foreground="Black" FontSize="14" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="531,5,0,0" TextWrapping="Wrap" Text="Karnet dla studentów / doktorantów – przysługuje studentom i doktorantom z ważną legitymacją, decydujesz kiedy karnet ma być aktywny, ćwiczysz ile chcesz, masz dostęp do najlepszych klubów fitness w Polsce oraz nie podpisujesz żadnych umów." VerticalAlignment="Top" Height="192" Width="296" Foreground="Black" FontSize="14" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="934,10,0,0" TextWrapping="Wrap" Text="Karnet normalny – przysługuje: osobom chcącym zapisać się na siłownie ale nie spełniają wymogów do innego rodzaju karnetu. Zawiera w sobie trening wprowadzający i stała opieka trenerki nielimitowany dostęp do zajęć fitness nielimitowany dostęp do siłowni comiesięczna wizyta dietetyczna stała opieka trenerki wprowadzającej wraz z pomiarami i analizą." VerticalAlignment="Top" Height="192" Width="296" Foreground="Black" FontSize="14" Grid.Row="1"/>
+
+
+    </Grid>
+</Window>

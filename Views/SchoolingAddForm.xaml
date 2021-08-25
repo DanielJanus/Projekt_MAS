@@ -1,0 +1,55 @@
+﻿<Window x:Class="MAS_Implementacja.Views.SchoolingAddForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAS_Implementacja.Views"
+        mc:Ignorable="d"
+        Title="SchoolingAddForm" Height="870.167" Width="714">
+    <Grid Height="842" VerticalAlignment="Top" Margin="0,0,-8,-3">
+        <Grid.Background>
+            <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Universal\Background.png"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Center" Height="75" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="1920" Margin="-4,0"/>
+        <Button Content="DREAM'S" FontSize="50" HorizontalAlignment="Left" Margin="-1,-4,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" />
+        <Button Content="GYM" FontSize="25" HorizontalAlignment="Left" Margin="196,23,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontWeight="Bold" Height="40" Width="116" />
+
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="44" Margin="0,799,0,0" Stroke="Black" VerticalAlignment="Top" Width="714"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,813,0,0" TextWrapping="Wrap" Text="DREAM'SGYM © 2021 Wszystkie prawa zastrzeżone" VerticalAlignment="Top" Foreground="#FF514E4E" FontSize="15"/>
+        <Rectangle Fill="black" HorizontalAlignment="center" Height="633" Margin="48,144,50,0" Stroke="Black" VerticalAlignment="Top" Width="616"/>
+
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="58,181,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="IdInstruktora:" HorizontalAlignment="Left" Margin="58,151,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtIdInstruktora" Height="24" Margin="64,199,70,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="58,267,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Nazwa:" HorizontalAlignment="Left" Margin="58,235,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtNazwa" Height="24" Margin="64,283,70,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="58,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="DataSzkolenia:" HorizontalAlignment="Left" Margin="58,321,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16" Width="124"/>
+        <TextBox x:Name="txtDataSzkolenia" Height="22" Margin="64,369,68,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="58,437,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="IlośćOsób:" HorizontalAlignment="Left" Margin="58,405,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtIloscOsob" Height="24" Margin="64,453,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="58,521,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Czas trwania:" HorizontalAlignment="Left" Margin="58,489,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtCzasTrwania" Height="22" Margin="64,539,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="58,605,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="Koszt:" HorizontalAlignment="Left" Margin="52,575,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtKoszt" Height="22" Margin="66,621,72,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Button Content="Dodaj szkolenie" HorizontalAlignment="Left" Margin="224,675,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.487,0.9" Height="40" Background="#FF518B17" FontSize="16" Click="AddSchooling"/>
+        <Button Content="Cofnij" HorizontalAlignment="Left" Margin="224,720,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.487,0.9" Height="40" Background="#FF991D1D" Click="GoBack" FontSize="16"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="129,75,0,0" TextWrapping="Wrap" Text="Formularz szkolenia" VerticalAlignment="Top" FontSize="48" Foreground="#FFB22D2D" FontWeight="Bold"/>
+
+
+
+    </Grid>
+</Window>
+

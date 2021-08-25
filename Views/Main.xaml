@@ -1,0 +1,72 @@
+﻿<Window x:Class="MAS_Implementacja.Views.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAS_Implementacja.Views"
+        mc:Ignorable="d"
+        Title="Main" Height="994" Width="1400.5">
+    <Grid VerticalAlignment="Top" Margin="0,0,0,-31">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Universal\Background.png"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Center" Height="75" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="1392"/>
+        <Button Content="DREAM'S" FontSize="40" HorizontalAlignment="Left" Margin="3,10,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" />
+        <Button Content="GYM" FontSize="20" HorizontalAlignment="Left" Margin="150,28,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontWeight="Bold" Height="40" Width="116" />
+        <Button Content="DANE OSOBOWE" FontSize="30" HorizontalAlignment="Left" Margin="1058,20,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" Click="PersonalData" />
+        <Button Content="NASZE KLUBY" FontSize="30" HorizontalAlignment="Left" Margin="850,20,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" Click="ViewClubs" />
+        <Button Content="SZKOLENIA" FontSize="30" HorizontalAlignment="Left" Margin="682,20,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" Click="ViewSchooling" />
+        <Button Content="TRENINGI" FontSize="30" HorizontalAlignment="Left" Margin="525,20,0,0" VerticalAlignment="Top"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" Click="ShowTraining" Width="152" />
+        <Button Content="STRONA GŁÓWNA" FontSize="30" HorizontalAlignment="Left" Margin="256,20,0,0" VerticalAlignment="Top"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold"/>
+
+
+        <Rectangle HorizontalAlignment="Center" Height="528" Margin="56,103,642,0" Stroke="Black" VerticalAlignment="Top" Width="694">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\MainBigPic.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle HorizontalAlignment="Left" Height="225" Margin="56,668,0,0" Stroke="Black"  VerticalAlignment="Top" Width="316">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\MainMediumPic2.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Center" Height="225" Margin="434,668,642,0" Stroke="Black" VerticalAlignment="Top" Width="316">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\MainMediumPic3.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="225" Margin="810,668,0,0" Stroke="Black" VerticalAlignment="Top" Width="508">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\MainMediumPic5.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="236" Margin="810,103,0,0" Stroke="Black"  VerticalAlignment="Top" Width="514">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\MainMediumWidthPic1.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="235" Margin="810,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="514">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Main\MainMediumWidthPic2.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Content="KUP KARNET" HorizontalAlignment="Left" Margin="61,103,0,0" VerticalAlignment="Top" FontSize="50" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" Click="OpenOffer" Height="64" Width="319" />
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="56,856,0,0" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="316" Opacity="0.7"/>
+        <TextBlock HorizontalAlignment="Left" Margin="68,863,0,0" Text="Sezon na szparagi" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
+        <Rectangle HorizontalAlignment="Center" Height="37" Margin="434,856,642,0" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="316" Opacity="0.7" RenderTransformOrigin="0.703,0.297"/>
+        <TextBlock HorizontalAlignment="Left" Margin="444,863,0,0" Text="Nowe światło na kreatyne" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="White" Width="228"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="810,856,0,0" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="508" Opacity="0.7"/>
+        <TextBlock HorizontalAlignment="Left" Margin="820,863,0,0" Text="Nordic Walking – czym jest prozdrowotny spacer z kijkami?" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="808,327,0,0" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="514" Opacity="0.7"/>
+        <TextBlock HorizontalAlignment="Left" Margin="818,335,0,0" Text="Jak bardzo cukier szkodzi zdrowiu - Słodkie uzależnienie" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="810,594,0,0" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="514" Opacity="0.7"/>
+        <TextBlock HorizontalAlignment="Left" Margin="818,601,0,0" Text="Odkryj bogactwo witamin zawarte w jarmużu" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="75" Margin="1318,0,0,0" VerticalAlignment="Top" Width="64" Source="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Universal\User.png"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="49" Margin="0,914,0,-5" Stroke="Black" VerticalAlignment="Top" Width="1392"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,928,0,0" TextWrapping="Wrap" Text="DREAM'SGYM © 2021 Wszystkie prawa zastrzeżone" VerticalAlignment="Top" Foreground="#FF514E4E" FontSize="15"/>
+    </Grid>
+</Window>

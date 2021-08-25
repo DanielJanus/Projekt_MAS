@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MASModelStoreContainer" CdmEntityContainer="MASDBEntities">
+    <EntitySetMapping Name="DaneOsobowe">
+      <EntityTypeMapping TypeName="MASModel.DaneOsobowe">
+        <MappingFragment StoreEntitySet="DaneOsobowe">
+          <ScalarProperty Name="IdDaneOsobowe" ColumnName="IdDaneOsobowe" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
+          <ScalarProperty Name="AdresEmail" ColumnName="AdresEmail" />
+          <ScalarProperty Name="TelefonKontaktowy" ColumnName="TelefonKontaktowy" />
+          <ScalarProperty Name="AdresZamieszkania" ColumnName="AdresZamieszkania" />
+          <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instruktor">
+      <EntityTypeMapping TypeName="MASModel.Instruktor">
+        <MappingFragment StoreEntitySet="Instruktor">
+          <ScalarProperty Name="IdInstruktor" ColumnName="IdInstruktor" />
+          <ScalarProperty Name="Pracownik_IdPracownik" ColumnName="Pracownik_IdPracownik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karnet">
+      <EntityTypeMapping TypeName="MASModel.Karnet">
+        <MappingFragment StoreEntitySet="Karnet">
+          <ScalarProperty Name="NumerKarnetu" ColumnName="NumerKarnetu" />
+          <ScalarProperty Name="RodzajKarnetu" ColumnName="RodzajKarnetu" />
+          <ScalarProperty Name="NazwaKarnetu" ColumnName="NazwaKarnetu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klient">
+      <EntityTypeMapping TypeName="MASModel.Klient">
+        <MappingFragment StoreEntitySet="Klient">
+          <ScalarProperty Name="IdKlient" ColumnName="IdKlient" />
+          <ScalarProperty Name="DaneOsobowe_IdDaneOsobowe" ColumnName="DaneOsobowe_IdDaneOsobowe" />
+          <ScalarProperty Name="RodzajDokumentuOsobistego" ColumnName="RodzajDokumentuOsobistego" />
+          <ScalarProperty Name="ZaswiadczenieOdLekarza" ColumnName="ZaswiadczenieOdLekarza" />
+          <ScalarProperty Name="ZgodaDotyczacaRegulaminuKlubu" ColumnName="ZgodaDotyczacaRegulaminuKlubu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klub">
+      <EntityTypeMapping TypeName="MASModel.Klub">
+        <MappingFragment StoreEntitySet="Klub">
+          <ScalarProperty Name="IdKlub" ColumnName="IdKlub" />
+          <ScalarProperty Name="NazwaKlubu" ColumnName="NazwaKlubu" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="TelefonSluzbowy" ColumnName="TelefonSluzbowy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaszynyWKlubie">
+      <EntityTypeMapping TypeName="MASModel.MaszynyWKlubie">
+        <MappingFragment StoreEntitySet="MaszynyWKlubie">
+          <ScalarProperty Name="NumerIdentyfikacyjny" ColumnName="NumerIdentyfikacyjny" />
+          <ScalarProperty Name="Klub_IdKlub" ColumnName="Klub_IdKlub" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Zastosowanie" ColumnName="Zastosowanie" />
+          <ScalarProperty Name="OstatniaDataKonserwacji" ColumnName="OstatniaDataKonserwacji" />
+          <ScalarProperty Name="ZaplanowanaDataKonserwacji" ColumnName="ZaplanowanaDataKonserwacji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pracownik">
+      <EntityTypeMapping TypeName="MASModel.Pracownik">
+        <MappingFragment StoreEntitySet="Pracownik">
+          <ScalarProperty Name="IdPracownik" ColumnName="IdPracownik" />
+          <ScalarProperty Name="Umowa_IdUmowa" ColumnName="Umowa_IdUmowa" />
+          <ScalarProperty Name="DaneOsobowe_IdDaneOsobowe" ColumnName="DaneOsobowe_IdDaneOsobowe" />
+          <ScalarProperty Name="NumerKontaBankowego" ColumnName="NumerKontaBankowego" />
+          <ScalarProperty Name="IndywidualnaStawkaGodzinowa" ColumnName="IndywidualnaStawkaGodzinowa" />
+          <ScalarProperty Name="LiczbaGodzinPrzepracowanych" ColumnName="LiczbaGodzinPrzepracowanych" />
+          <ScalarProperty Name="Pensja" ColumnName="Pensja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recepcjonista">
+      <EntityTypeMapping TypeName="MASModel.Recepcjonista">
+        <MappingFragment StoreEntitySet="Recepcjonista">
+          <ScalarProperty Name="IdRecepcjonista" ColumnName="IdRecepcjonista" />
+          <ScalarProperty Name="Pracownik_IdPracownik" ColumnName="Pracownik_IdPracownik" />
+          <ScalarProperty Name="IloscWykonanychRezerwacji" ColumnName="IloscWykonanychRezerwacji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Szkolenie">
+      <EntityTypeMapping TypeName="MASModel.Szkolenie">
+        <MappingFragment StoreEntitySet="Szkolenie">
+          <ScalarProperty Name="IdSzkolenie" ColumnName="IdSzkolenie" />
+          <ScalarProperty Name="Instruktor_IdInstruktor" ColumnName="Instruktor_IdInstruktor" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="DataSzkolenia" ColumnName="DataSzkolenia" />
+          <ScalarProperty Name="IloscOsob" ColumnName="IloscOsob" />
+          <ScalarProperty Name="CzasTrwania" ColumnName="CzasTrwania" />
+          <ScalarProperty Name="Koszt" ColumnName="Koszt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trener">
+      <EntityTypeMapping TypeName="MASModel.Trener">
+        <MappingFragment StoreEntitySet="Trener">
+          <ScalarProperty Name="IdTrener" ColumnName="IdTrener" />
+          <ScalarProperty Name="Pracownik_IdPracownik" ColumnName="Pracownik_IdPracownik" />
+          <ScalarProperty Name="OferowaneTreningi" ColumnName="OferowaneTreningi" />
+          <ScalarProperty Name="PrawoWykonywaniaZawodu" ColumnName="PrawoWykonywaniaZawodu" />
+          <ScalarProperty Name="ZaswiadczenieONiekaralnosci" ColumnName="ZaswiadczenieONiekaralnosci" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trening">
+      <EntityTypeMapping TypeName="MASModel.Trening">
+        <MappingFragment StoreEntitySet="Trening">
+          <ScalarProperty Name="IdTrening" ColumnName="IdTrening" />
+          <ScalarProperty Name="TypTreningu_IdTypTreningu" ColumnName="TypTreningu_IdTypTreningu" />
+          <ScalarProperty Name="Trener_IdTrener" ColumnName="Trener_IdTrener" />
+          <ScalarProperty Name="Recepcjonista_IdRecepcjonista" ColumnName="Recepcjonista_IdRecepcjonista" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Rodzaj" ColumnName="Rodzaj" />
+          <ScalarProperty Name="Rezerwacja" ColumnName="Rezerwacja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TreningKlub">
+      <EntityTypeMapping TypeName="MASModel.TreningKlub">
+        <MappingFragment StoreEntitySet="TreningKlub">
+          <ScalarProperty Name="Trening_IdTrening" ColumnName="Trening_IdTrening" />
+          <ScalarProperty Name="Klub_IdKlub" ColumnName="Klub_IdKlub" />
+          <ScalarProperty Name="DataTreningu" ColumnName="DataTreningu" />
+          <ScalarProperty Name="DlugoscTreningu" ColumnName="DlugoscTreningu" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypTreningu">
+      <EntityTypeMapping TypeName="MASModel.TypTreningu">
+        <MappingFragment StoreEntitySet="TypTreningu">
+          <ScalarProperty Name="IdTypTreningu" ColumnName="IdTypTreningu" />
+          <ScalarProperty Name="NazwaTypuTreningu" ColumnName="NazwaTypuTreningu" />
+          <ScalarProperty Name="LiczbaSerii" ColumnName="LiczbaSerii" />
+          <ScalarProperty Name="LiczbaPowtorzen" ColumnName="LiczbaPowtorzen" />
+          <ScalarProperty Name="MetodaTreningowa" ColumnName="MetodaTreningowa" />
+          <ScalarProperty Name="AkcesoriaTreningowe" ColumnName="AkcesoriaTreningowe" />
+          <ScalarProperty Name="MaszynyDoTreninguSilowego" ColumnName="MaszynyDoTreninguSilowego" />
+          <ScalarProperty Name="MaszynyCardio" ColumnName="MaszynyCardio" />
+          <ScalarProperty Name="WyposazenieCardioFitness" ColumnName="WyposazenieCardioFitness" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Umowa">
+      <EntityTypeMapping TypeName="MASModel.Umowa">
+        <MappingFragment StoreEntitySet="Umowa">
+          <ScalarProperty Name="IdUmowa" ColumnName="IdUmowa" />
+          <ScalarProperty Name="RodzajUmowy" ColumnName="RodzajUmowy" />
+          <ScalarProperty Name="DataRozpoczeciaUmowy" ColumnName="DataRozpoczeciaUmowy" />
+          <ScalarProperty Name="DataZakonczeniaUmowy" ColumnName="DataZakonczeniaUmowy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="KlientKarnet" TypeName="MASModel.KlientKarnet" StoreEntitySet="KlientKarnet">
+      <EndProperty Name="Karnet">
+        <ScalarProperty Name="NumerKarnetu" ColumnName="NumerKarnetu" />
+      </EndProperty>
+      <EndProperty Name="Klient">
+        <ScalarProperty Name="IdKlient" ColumnName="Klient_IdKlient" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

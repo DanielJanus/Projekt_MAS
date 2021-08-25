@@ -1,0 +1,40 @@
+﻿<Window x:Class="MAS_Implementacja.Views.DynamicConnectionWithTrainerForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAS_Implementacja.Views"
+        mc:Ignorable="d"
+        Title="DynamicConnectionWithTrainerForm" Height="608.167" Width="714">
+    <Grid Height="705" VerticalAlignment="Top" Margin="0,0,-8,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="G:\Users\Daniel\source\repos\MAS-Implementacja\Assets\Universal\Background.png"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Center" Height="75" Stroke="Black" Fill="Black" VerticalAlignment="Top" Width="1920" Margin="-4,0"/>
+        <Button Content="DREAM'S" FontSize="50" HorizontalAlignment="Left" Margin="-1,-4,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#B22D2D" FontWeight="Bold" />
+        <Button Content="GYM" FontSize="25" HorizontalAlignment="Left" Margin="196,23,0,0" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="White" FontWeight="Bold" Height="40" Width="116" />
+
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="44" Margin="0,534,0,0" Stroke="Black" VerticalAlignment="Top" Width="714"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,548,0,0" TextWrapping="Wrap" Text="DREAM'SGYM © 2021 Wszystkie prawa zastrzeżone" VerticalAlignment="Top" Foreground="#FF514E4E" FontSize="15"/>
+        <Rectangle Fill="black" HorizontalAlignment="center" Height="372" Margin="48,144,50,0" Stroke="Black" VerticalAlignment="Top" Width="616"/>
+
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="61,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="IdPracownik:" HorizontalAlignment="Left" Margin="55,148,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtIdPracownik" Height="24" Margin="67,198,67,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="61,266,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="OferowaneTreningi:" HorizontalAlignment="Left" Margin="61,234,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16"/>
+        <TextBox x:Name="txtOferowaneTreningi" Height="24" Margin="67,282,67,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Rectangle Fill="#FFACACAC" HorizontalAlignment="Left" Height="54" Margin="61,349,0,0" Stroke="Black" VerticalAlignment="Top" Width="594"/>
+        <Label Content="PrawoWykonywaniaZawodu:" HorizontalAlignment="Left" Margin="61,319,0,0" VerticalAlignment="Top" Foreground="White" Background="Black" FontSize="16" Width="212"/>
+        <TextBox x:Name="txtPrawo" Height="22" Margin="67,367,65,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Foreground="Black" Background="#FFACACAC"/>
+
+        <Button Content="Dodaj dynamiczna połączenie" HorizontalAlignment="Left" Margin="220,415,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.487,0.9" Height="40" Background="#FF518B17" FontSize="16" Click="AddDynamicConnection"/>
+        <Button Content="Cofnij" HorizontalAlignment="Left" Margin="220,461,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.487,0.9" Height="40" Background="#FF991D1D" Click="GoBack" FontSize="16"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="56,83,0,0" TextWrapping="Wrap" Text="Dynamiczne połączenie trener" VerticalAlignment="Top" FontSize="42" Foreground="#FFB22D2D" FontWeight="Bold" Width="601"/>
+
+    </Grid>
+</Window>

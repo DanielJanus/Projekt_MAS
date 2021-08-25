@@ -1,0 +1,1078 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MASModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DaneOsobowe">
+          <Key>
+            <PropertyRef Name="IdDaneOsobowe" />
+          </Key>
+          <Property Name="IdDaneOsobowe" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataUrodzenia" Type="date" Nullable="false" />
+          <Property Name="AdresEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonKontaktowy" Type="varchar" MaxLength="12" />
+          <Property Name="AdresZamieszkania" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PESEL" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Instruktor">
+          <Key>
+            <PropertyRef Name="IdInstruktor" />
+          </Key>
+          <Property Name="IdInstruktor" Type="int" Nullable="false" />
+          <Property Name="Pracownik_IdPracownik" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Karnet">
+          <Key>
+            <PropertyRef Name="NumerKarnetu" />
+          </Key>
+          <Property Name="NumerKarnetu" Type="int" Nullable="false" />
+          <Property Name="RodzajKarnetu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NazwaKarnetu" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="IdKlient" />
+          </Key>
+          <Property Name="IdKlient" Type="int" Nullable="false" />
+          <Property Name="DaneOsobowe_IdDaneOsobowe" Type="int" Nullable="false" />
+          <Property Name="RodzajDokumentuOsobistego" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ZaswiadczenieOdLekarza" Type="bit" Nullable="false" />
+          <Property Name="ZgodaDotyczacaRegulaminuKlubu" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KlientKarnet">
+          <Key>
+            <PropertyRef Name="NumerKarnetu" />
+            <PropertyRef Name="Klient_IdKlient" />
+          </Key>
+          <Property Name="NumerKarnetu" Type="int" Nullable="false" />
+          <Property Name="Klient_IdKlient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klub">
+          <Key>
+            <PropertyRef Name="IdKlub" />
+          </Key>
+          <Property Name="IdKlub" Type="int" Nullable="false" />
+          <Property Name="NazwaKlubu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonSluzbowy" Type="varchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaszynyWKlubie">
+          <Key>
+            <PropertyRef Name="NumerIdentyfikacyjny" />
+          </Key>
+          <Property Name="NumerIdentyfikacyjny" Type="int" Nullable="false" />
+          <Property Name="Klub_IdKlub" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zastosowanie" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OstatniaDataKonserwacji" Type="date" Nullable="false" />
+          <Property Name="ZaplanowanaDataKonserwacji" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="IdPracownik" />
+          </Key>
+          <Property Name="IdPracownik" Type="int" Nullable="false" />
+          <Property Name="Umowa_IdUmowa" Type="int" Nullable="false" />
+          <Property Name="DaneOsobowe_IdDaneOsobowe" Type="int" Nullable="false" />
+          <Property Name="NumerKontaBankowego" Type="numeric" Precision="26" Scale="0" Nullable="false" />
+          <Property Name="IndywidualnaStawkaGodzinowa" Type="money" Nullable="false" />
+          <Property Name="LiczbaGodzinPrzepracowanych" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="Pensja" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recepcjonista">
+          <Key>
+            <PropertyRef Name="IdRecepcjonista" />
+          </Key>
+          <Property Name="IdRecepcjonista" Type="int" Nullable="false" />
+          <Property Name="Pracownik_IdPracownik" Type="int" Nullable="false" />
+          <Property Name="IloscWykonanychRezerwacji" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Szkolenie">
+          <Key>
+            <PropertyRef Name="IdSzkolenie" />
+          </Key>
+          <Property Name="IdSzkolenie" Type="int" Nullable="false" />
+          <Property Name="Instruktor_IdInstruktor" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataSzkolenia" Type="date" Nullable="false" />
+          <Property Name="IloscOsob" Type="int" Nullable="false" />
+          <Property Name="CzasTrwania" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="Koszt" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trener">
+          <Key>
+            <PropertyRef Name="IdTrener" />
+          </Key>
+          <Property Name="IdTrener" Type="int" Nullable="false" />
+          <Property Name="Pracownik_IdPracownik" Type="int" Nullable="false" />
+          <Property Name="OferowaneTreningi" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="PrawoWykonywaniaZawodu" Type="bit" Nullable="false" />
+          <Property Name="ZaswiadczenieONiekaralnosci" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trening">
+          <Key>
+            <PropertyRef Name="IdTrening" />
+          </Key>
+          <Property Name="IdTrening" Type="int" Nullable="false" />
+          <Property Name="TypTreningu_IdTypTreningu" Type="int" Nullable="false" />
+          <Property Name="Trener_IdTrener" Type="int" Nullable="false" />
+          <Property Name="Recepcjonista_IdRecepcjonista" Type="int" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rezerwacja" Type="bit" />
+        </EntityType>
+        <EntityType Name="TreningKlub">
+          <Key>
+            <PropertyRef Name="Trening_IdTrening" />
+            <PropertyRef Name="Klub_IdKlub" />
+          </Key>
+          <Property Name="Trening_IdTrening" Type="int" Nullable="false" />
+          <Property Name="Klub_IdKlub" Type="int" Nullable="false" />
+          <Property Name="DataTreningu" Type="datetime" Nullable="false" />
+          <Property Name="DlugoscTreningu" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="Cena" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypTreningu">
+          <Key>
+            <PropertyRef Name="IdTypTreningu" />
+          </Key>
+          <Property Name="IdTypTreningu" Type="int" Nullable="false" />
+          <Property Name="NazwaTypuTreningu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LiczbaSerii" Type="int" Nullable="false" />
+          <Property Name="LiczbaPowtorzen" Type="int" Nullable="false" />
+          <Property Name="MetodaTreningowa" Type="varchar" MaxLength="100" />
+          <Property Name="AkcesoriaTreningowe" Type="varchar" MaxLength="100" />
+          <Property Name="MaszynyDoTreninguSilowego" Type="varchar" MaxLength="100" />
+          <Property Name="MaszynyCardio" Type="varchar" MaxLength="100" />
+          <Property Name="WyposazenieCardioFitness" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Umowa">
+          <Key>
+            <PropertyRef Name="IdUmowa" />
+          </Key>
+          <Property Name="IdUmowa" Type="int" Nullable="false" />
+          <Property Name="RodzajUmowy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataRozpoczeciaUmowy" Type="date" Nullable="false" />
+          <Property Name="DataZakonczeniaUmowy" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="Instruktor_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Instruktor" Type="Self.Instruktor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="IdPracownik" />
+            </Principal>
+            <Dependent Role="Instruktor">
+              <PropertyRef Name="Pracownik_IdPracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Klient_DaneOsobowe">
+          <End Role="DaneOsobowe" Type="Self.DaneOsobowe" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Klient" Type="Self.Klient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneOsobowe">
+              <PropertyRef Name="IdDaneOsobowe" />
+            </Principal>
+            <Dependent Role="Klient">
+              <PropertyRef Name="DaneOsobowe_IdDaneOsobowe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KlientKarnet_Karnet">
+          <End Role="Karnet" Type="Self.Karnet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KlientKarnet" Type="Self.KlientKarnet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Karnet">
+              <PropertyRef Name="NumerKarnetu" />
+            </Principal>
+            <Dependent Role="KlientKarnet">
+              <PropertyRef Name="NumerKarnetu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KlientKarnet_Klient">
+          <End Role="Klient" Type="Self.Klient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KlientKarnet" Type="Self.KlientKarnet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klient">
+              <PropertyRef Name="IdKlient" />
+            </Principal>
+            <Dependent Role="KlientKarnet">
+              <PropertyRef Name="Klient_IdKlient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaszynyWKlubie_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MaszynyWKlubie" Type="Self.MaszynyWKlubie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdKlub" />
+            </Principal>
+            <Dependent Role="MaszynyWKlubie">
+              <PropertyRef Name="Klub_IdKlub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownik_DaneOsobowe">
+          <End Role="DaneOsobowe" Type="Self.DaneOsobowe" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneOsobowe">
+              <PropertyRef Name="IdDaneOsobowe" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="DaneOsobowe_IdDaneOsobowe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownik_Umowa">
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Umowa">
+              <PropertyRef Name="IdUmowa" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="Umowa_IdUmowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Recepcjonista_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Recepcjonista" Type="Self.Recepcjonista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="IdPracownik" />
+            </Principal>
+            <Dependent Role="Recepcjonista">
+              <PropertyRef Name="Pracownik_IdPracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Szkolenie_Instruktor">
+          <End Role="Instruktor" Type="Self.Instruktor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Szkolenie" Type="Self.Szkolenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instruktor">
+              <PropertyRef Name="IdInstruktor" />
+            </Principal>
+            <Dependent Role="Szkolenie">
+              <PropertyRef Name="Instruktor_IdInstruktor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trener_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trener" Type="Self.Trener" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="IdPracownik" />
+            </Principal>
+            <Dependent Role="Trener">
+              <PropertyRef Name="Pracownik_IdPracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trening_Recepcjonista">
+          <End Role="Recepcjonista" Type="Self.Recepcjonista" Multiplicity="0..1" />
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recepcjonista">
+              <PropertyRef Name="IdRecepcjonista" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="Recepcjonista_IdRecepcjonista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trening_Trener">
+          <End Role="Trener" Type="Self.Trener" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trener">
+              <PropertyRef Name="IdTrener" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="Trener_IdTrener" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trening_TypTreningu">
+          <End Role="TypTreningu" Type="Self.TypTreningu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypTreningu">
+              <PropertyRef Name="IdTypTreningu" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="TypTreningu_IdTypTreningu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TreningKlub_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TreningKlub" Type="Self.TreningKlub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdKlub" />
+            </Principal>
+            <Dependent Role="TreningKlub">
+              <PropertyRef Name="Klub_IdKlub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TreningKlub_Trening">
+          <End Role="Trening" Type="Self.Trening" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TreningKlub" Type="Self.TreningKlub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trening">
+              <PropertyRef Name="IdTrening" />
+            </Principal>
+            <Dependent Role="TreningKlub">
+              <PropertyRef Name="Trening_IdTrening" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MASModelStoreContainer">
+          <EntitySet Name="DaneOsobowe" EntityType="Self.DaneOsobowe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instruktor" EntityType="Self.Instruktor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Karnet" EntityType="Self.Karnet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klient" EntityType="Self.Klient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KlientKarnet" EntityType="Self.KlientKarnet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klub" EntityType="Self.Klub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaszynyWKlubie" EntityType="Self.MaszynyWKlubie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recepcjonista" EntityType="Self.Recepcjonista" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Szkolenie" EntityType="Self.Szkolenie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trener" EntityType="Self.Trener" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trening" EntityType="Self.Trening" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TreningKlub" EntityType="Self.TreningKlub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypTreningu" EntityType="Self.TypTreningu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Umowa" EntityType="Self.Umowa" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Instruktor_Pracownik" Association="Self.Instruktor_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Instruktor" EntitySet="Instruktor" />
+          </AssociationSet>
+          <AssociationSet Name="Klient_DaneOsobowe" Association="Self.Klient_DaneOsobowe">
+            <End Role="DaneOsobowe" EntitySet="DaneOsobowe" />
+            <End Role="Klient" EntitySet="Klient" />
+          </AssociationSet>
+          <AssociationSet Name="KlientKarnet_Karnet" Association="Self.KlientKarnet_Karnet">
+            <End Role="Karnet" EntitySet="Karnet" />
+            <End Role="KlientKarnet" EntitySet="KlientKarnet" />
+          </AssociationSet>
+          <AssociationSet Name="KlientKarnet_Klient" Association="Self.KlientKarnet_Klient">
+            <End Role="Klient" EntitySet="Klient" />
+            <End Role="KlientKarnet" EntitySet="KlientKarnet" />
+          </AssociationSet>
+          <AssociationSet Name="MaszynyWKlubie_Klub" Association="Self.MaszynyWKlubie_Klub">
+            <End Role="Klub" EntitySet="Klub" />
+            <End Role="MaszynyWKlubie" EntitySet="MaszynyWKlubie" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownik_DaneOsobowe" Association="Self.Pracownik_DaneOsobowe">
+            <End Role="DaneOsobowe" EntitySet="DaneOsobowe" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownik_Umowa" Association="Self.Pracownik_Umowa">
+            <End Role="Umowa" EntitySet="Umowa" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="Recepcjonista_Pracownik" Association="Self.Recepcjonista_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Recepcjonista" EntitySet="Recepcjonista" />
+          </AssociationSet>
+          <AssociationSet Name="Szkolenie_Instruktor" Association="Self.Szkolenie_Instruktor">
+            <End Role="Instruktor" EntitySet="Instruktor" />
+            <End Role="Szkolenie" EntitySet="Szkolenie" />
+          </AssociationSet>
+          <AssociationSet Name="Trener_Pracownik" Association="Self.Trener_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Trener" EntitySet="Trener" />
+          </AssociationSet>
+          <AssociationSet Name="Trening_Recepcjonista" Association="Self.Trening_Recepcjonista">
+            <End Role="Recepcjonista" EntitySet="Recepcjonista" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="Trening_Trener" Association="Self.Trening_Trener">
+            <End Role="Trener" EntitySet="Trener" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="Trening_TypTreningu" Association="Self.Trening_TypTreningu">
+            <End Role="TypTreningu" EntitySet="TypTreningu" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="TreningKlub_Klub" Association="Self.TreningKlub_Klub">
+            <End Role="Klub" EntitySet="Klub" />
+            <End Role="TreningKlub" EntitySet="TreningKlub" />
+          </AssociationSet>
+          <AssociationSet Name="TreningKlub_Trening" Association="Self.TreningKlub_Trening">
+            <End Role="Trening" EntitySet="Trening" />
+            <End Role="TreningKlub" EntitySet="TreningKlub" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MASModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DaneOsobowe">
+          <Key>
+            <PropertyRef Name="IdDaneOsobowe" />
+          </Key>
+          <Property Name="IdDaneOsobowe" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataUrodzenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AdresEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonKontaktowy" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="AdresZamieszkania" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PESEL" Type="Decimal" Precision="11" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Klient" Relationship="Self.Klient_DaneOsobowe" FromRole="DaneOsobowe" ToRole="Klient" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Pracownik_DaneOsobowe" FromRole="DaneOsobowe" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Instruktor">
+          <Key>
+            <PropertyRef Name="IdInstruktor" />
+          </Key>
+          <Property Name="IdInstruktor" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik_IdPracownik" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Instruktor_Pracownik" FromRole="Instruktor" ToRole="Pracownik" />
+          <NavigationProperty Name="Szkolenie" Relationship="Self.Szkolenie_Instruktor" FromRole="Instruktor" ToRole="Szkolenie" />
+        </EntityType>
+        <EntityType Name="Karnet">
+          <Key>
+            <PropertyRef Name="NumerKarnetu" />
+          </Key>
+          <Property Name="NumerKarnetu" Type="Int32" Nullable="false" />
+          <Property Name="RodzajKarnetu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NazwaKarnetu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Klient" Relationship="Self.KlientKarnet" FromRole="Karnet" ToRole="Klient" />
+        </EntityType>
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="IdKlient" />
+          </Key>
+          <Property Name="IdKlient" Type="Int32" Nullable="false" />
+          <Property Name="DaneOsobowe_IdDaneOsobowe" Type="Int32" Nullable="false" />
+          <Property Name="RodzajDokumentuOsobistego" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZaswiadczenieOdLekarza" Type="Boolean" Nullable="false" />
+          <Property Name="ZgodaDotyczacaRegulaminuKlubu" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DaneOsobowe" Relationship="Self.Klient_DaneOsobowe" FromRole="Klient" ToRole="DaneOsobowe" />
+          <NavigationProperty Name="Karnet" Relationship="Self.KlientKarnet" FromRole="Klient" ToRole="Karnet" />
+        </EntityType>
+        <EntityType Name="Klub">
+          <Key>
+            <PropertyRef Name="IdKlub" />
+          </Key>
+          <Property Name="IdKlub" Type="Int32" Nullable="false" />
+          <Property Name="NazwaKlubu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonSluzbowy" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MaszynyWKlubie" Relationship="Self.MaszynyWKlubie_Klub" FromRole="Klub" ToRole="MaszynyWKlubie" />
+          <NavigationProperty Name="TreningKlub" Relationship="Self.TreningKlub_Klub" FromRole="Klub" ToRole="TreningKlub" />
+        </EntityType>
+        <EntityType Name="MaszynyWKlubie">
+          <Key>
+            <PropertyRef Name="NumerIdentyfikacyjny" />
+          </Key>
+          <Property Name="NumerIdentyfikacyjny" Type="Int32" Nullable="false" />
+          <Property Name="Klub_IdKlub" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Zastosowanie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OstatniaDataKonserwacji" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ZaplanowanaDataKonserwacji" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Klub" Relationship="Self.MaszynyWKlubie_Klub" FromRole="MaszynyWKlubie" ToRole="Klub" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="IdPracownik" />
+          </Key>
+          <Property Name="IdPracownik" Type="Int32" Nullable="false" />
+          <Property Name="Umowa_IdUmowa" Type="Int32" Nullable="false" />
+          <Property Name="DaneOsobowe_IdDaneOsobowe" Type="Int32" Nullable="false" />
+          <Property Name="NumerKontaBankowego" Type="Decimal" Precision="26" Scale="0" Nullable="false" />
+          <Property Name="IndywidualnaStawkaGodzinowa" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="LiczbaGodzinPrzepracowanych" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="Pensja" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="DaneOsobowe" Relationship="Self.Pracownik_DaneOsobowe" FromRole="Pracownik" ToRole="DaneOsobowe" />
+          <NavigationProperty Name="Instruktor" Relationship="Self.Instruktor_Pracownik" FromRole="Pracownik" ToRole="Instruktor" />
+          <NavigationProperty Name="Umowa" Relationship="Self.Pracownik_Umowa" FromRole="Pracownik" ToRole="Umowa" />
+          <NavigationProperty Name="Recepcjonista" Relationship="Self.Recepcjonista_Pracownik" FromRole="Pracownik" ToRole="Recepcjonista" />
+          <NavigationProperty Name="Trener" Relationship="Self.Trener_Pracownik" FromRole="Pracownik" ToRole="Trener" />
+        </EntityType>
+        <EntityType Name="Recepcjonista">
+          <Key>
+            <PropertyRef Name="IdRecepcjonista" />
+          </Key>
+          <Property Name="IdRecepcjonista" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik_IdPracownik" Type="Int32" Nullable="false" />
+          <Property Name="IloscWykonanychRezerwacji" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Recepcjonista_Pracownik" FromRole="Recepcjonista" ToRole="Pracownik" />
+          <NavigationProperty Name="Trening" Relationship="Self.Trening_Recepcjonista" FromRole="Recepcjonista" ToRole="Trening" />
+        </EntityType>
+        <EntityType Name="Szkolenie">
+          <Key>
+            <PropertyRef Name="IdSzkolenie" />
+          </Key>
+          <Property Name="IdSzkolenie" Type="Int32" Nullable="false" />
+          <Property Name="Instruktor_IdInstruktor" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataSzkolenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IloscOsob" Type="Int32" Nullable="false" />
+          <Property Name="CzasTrwania" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="Koszt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Instruktor" Relationship="Self.Szkolenie_Instruktor" FromRole="Szkolenie" ToRole="Instruktor" />
+        </EntityType>
+        <EntityType Name="Trener">
+          <Key>
+            <PropertyRef Name="IdTrener" />
+          </Key>
+          <Property Name="IdTrener" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik_IdPracownik" Type="Int32" Nullable="false" />
+          <Property Name="OferowaneTreningi" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PrawoWykonywaniaZawodu" Type="Boolean" Nullable="false" />
+          <Property Name="ZaswiadczenieONiekaralnosci" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Trener_Pracownik" FromRole="Trener" ToRole="Pracownik" />
+          <NavigationProperty Name="Trening" Relationship="Self.Trening_Trener" FromRole="Trener" ToRole="Trening" />
+        </EntityType>
+        <EntityType Name="Trening">
+          <Key>
+            <PropertyRef Name="IdTrening" />
+          </Key>
+          <Property Name="IdTrening" Type="Int32" Nullable="false" />
+          <Property Name="TypTreningu_IdTypTreningu" Type="Int32" Nullable="false" />
+          <Property Name="Trener_IdTrener" Type="Int32" Nullable="false" />
+          <Property Name="Recepcjonista_IdRecepcjonista" Type="Int32" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rezerwacja" Type="Boolean" />
+          <NavigationProperty Name="Recepcjonista" Relationship="Self.Trening_Recepcjonista" FromRole="Trening" ToRole="Recepcjonista" />
+          <NavigationProperty Name="Trener" Relationship="Self.Trening_Trener" FromRole="Trening" ToRole="Trener" />
+          <NavigationProperty Name="TypTreningu" Relationship="Self.Trening_TypTreningu" FromRole="Trening" ToRole="TypTreningu" />
+          <NavigationProperty Name="TreningKlub" Relationship="Self.TreningKlub_Trening" FromRole="Trening" ToRole="TreningKlub" />
+        </EntityType>
+        <EntityType Name="TreningKlub">
+          <Key>
+            <PropertyRef Name="Trening_IdTrening" />
+            <PropertyRef Name="Klub_IdKlub" />
+          </Key>
+          <Property Name="Trening_IdTrening" Type="Int32" Nullable="false" />
+          <Property Name="Klub_IdKlub" Type="Int32" Nullable="false" />
+          <Property Name="DataTreningu" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DlugoscTreningu" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Klub" Relationship="Self.TreningKlub_Klub" FromRole="TreningKlub" ToRole="Klub" />
+          <NavigationProperty Name="Trening" Relationship="Self.TreningKlub_Trening" FromRole="TreningKlub" ToRole="Trening" />
+        </EntityType>
+        <EntityType Name="TypTreningu">
+          <Key>
+            <PropertyRef Name="IdTypTreningu" />
+          </Key>
+          <Property Name="IdTypTreningu" Type="Int32" Nullable="false" />
+          <Property Name="NazwaTypuTreningu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LiczbaSerii" Type="Int32" Nullable="false" />
+          <Property Name="LiczbaPowtorzen" Type="Int32" Nullable="false" />
+          <Property Name="MetodaTreningowa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AkcesoriaTreningowe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaszynyDoTreninguSilowego" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaszynyCardio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WyposazenieCardioFitness" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Trening" Relationship="Self.Trening_TypTreningu" FromRole="TypTreningu" ToRole="Trening" />
+        </EntityType>
+        <EntityType Name="Umowa">
+          <Key>
+            <PropertyRef Name="IdUmowa" />
+          </Key>
+          <Property Name="IdUmowa" Type="Int32" Nullable="false" />
+          <Property Name="RodzajUmowy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataRozpoczeciaUmowy" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DataZakonczeniaUmowy" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Pracownik_Umowa" FromRole="Umowa" ToRole="Pracownik" />
+        </EntityType>
+        <Association Name="Klient_DaneOsobowe">
+          <End Role="DaneOsobowe" Type="Self.DaneOsobowe" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Klient" Type="Self.Klient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneOsobowe">
+              <PropertyRef Name="IdDaneOsobowe" />
+            </Principal>
+            <Dependent Role="Klient">
+              <PropertyRef Name="DaneOsobowe_IdDaneOsobowe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownik_DaneOsobowe">
+          <End Role="DaneOsobowe" Type="Self.DaneOsobowe" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneOsobowe">
+              <PropertyRef Name="IdDaneOsobowe" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="DaneOsobowe_IdDaneOsobowe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Instruktor_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Instruktor" Type="Self.Instruktor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="IdPracownik" />
+            </Principal>
+            <Dependent Role="Instruktor">
+              <PropertyRef Name="Pracownik_IdPracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Szkolenie_Instruktor">
+          <End Role="Instruktor" Type="Self.Instruktor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Szkolenie" Type="Self.Szkolenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instruktor">
+              <PropertyRef Name="IdInstruktor" />
+            </Principal>
+            <Dependent Role="Szkolenie">
+              <PropertyRef Name="Instruktor_IdInstruktor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaszynyWKlubie_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MaszynyWKlubie" Type="Self.MaszynyWKlubie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdKlub" />
+            </Principal>
+            <Dependent Role="MaszynyWKlubie">
+              <PropertyRef Name="Klub_IdKlub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TreningKlub_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TreningKlub" Type="Self.TreningKlub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdKlub" />
+            </Principal>
+            <Dependent Role="TreningKlub">
+              <PropertyRef Name="Klub_IdKlub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownik_Umowa">
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Umowa">
+              <PropertyRef Name="IdUmowa" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="Umowa_IdUmowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Recepcjonista_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Recepcjonista" Type="Self.Recepcjonista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="IdPracownik" />
+            </Principal>
+            <Dependent Role="Recepcjonista">
+              <PropertyRef Name="Pracownik_IdPracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trener_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trener" Type="Self.Trener" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="IdPracownik" />
+            </Principal>
+            <Dependent Role="Trener">
+              <PropertyRef Name="Pracownik_IdPracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trening_Recepcjonista">
+          <End Role="Recepcjonista" Type="Self.Recepcjonista" Multiplicity="0..1" />
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recepcjonista">
+              <PropertyRef Name="IdRecepcjonista" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="Recepcjonista_IdRecepcjonista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trening_Trener">
+          <End Role="Trener" Type="Self.Trener" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trener">
+              <PropertyRef Name="IdTrener" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="Trener_IdTrener" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trening_TypTreningu">
+          <End Role="TypTreningu" Type="Self.TypTreningu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypTreningu">
+              <PropertyRef Name="IdTypTreningu" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="TypTreningu_IdTypTreningu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TreningKlub_Trening">
+          <End Role="Trening" Type="Self.Trening" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TreningKlub" Type="Self.TreningKlub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trening">
+              <PropertyRef Name="IdTrening" />
+            </Principal>
+            <Dependent Role="TreningKlub">
+              <PropertyRef Name="Trening_IdTrening" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KlientKarnet">
+          <End Role="Karnet" Type="Self.Karnet" Multiplicity="*" />
+          <End Role="Klient" Type="Self.Klient" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MASDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DaneOsobowe" EntityType="Self.DaneOsobowe" />
+          <EntitySet Name="Instruktor" EntityType="Self.Instruktor" />
+          <EntitySet Name="Karnet" EntityType="Self.Karnet" />
+          <EntitySet Name="Klient" EntityType="Self.Klient" />
+          <EntitySet Name="Klub" EntityType="Self.Klub" />
+          <EntitySet Name="MaszynyWKlubie" EntityType="Self.MaszynyWKlubie" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
+          <EntitySet Name="Recepcjonista" EntityType="Self.Recepcjonista" />
+          <EntitySet Name="Szkolenie" EntityType="Self.Szkolenie" />
+          <EntitySet Name="Trener" EntityType="Self.Trener" />
+          <EntitySet Name="Trening" EntityType="Self.Trening" />
+          <EntitySet Name="TreningKlub" EntityType="Self.TreningKlub" />
+          <EntitySet Name="TypTreningu" EntityType="Self.TypTreningu" />
+          <EntitySet Name="Umowa" EntityType="Self.Umowa" />
+          <AssociationSet Name="Klient_DaneOsobowe" Association="Self.Klient_DaneOsobowe">
+            <End Role="DaneOsobowe" EntitySet="DaneOsobowe" />
+            <End Role="Klient" EntitySet="Klient" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownik_DaneOsobowe" Association="Self.Pracownik_DaneOsobowe">
+            <End Role="DaneOsobowe" EntitySet="DaneOsobowe" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="Instruktor_Pracownik" Association="Self.Instruktor_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Instruktor" EntitySet="Instruktor" />
+          </AssociationSet>
+          <AssociationSet Name="Szkolenie_Instruktor" Association="Self.Szkolenie_Instruktor">
+            <End Role="Instruktor" EntitySet="Instruktor" />
+            <End Role="Szkolenie" EntitySet="Szkolenie" />
+          </AssociationSet>
+          <AssociationSet Name="MaszynyWKlubie_Klub" Association="Self.MaszynyWKlubie_Klub">
+            <End Role="Klub" EntitySet="Klub" />
+            <End Role="MaszynyWKlubie" EntitySet="MaszynyWKlubie" />
+          </AssociationSet>
+          <AssociationSet Name="TreningKlub_Klub" Association="Self.TreningKlub_Klub">
+            <End Role="Klub" EntitySet="Klub" />
+            <End Role="TreningKlub" EntitySet="TreningKlub" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownik_Umowa" Association="Self.Pracownik_Umowa">
+            <End Role="Umowa" EntitySet="Umowa" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="Recepcjonista_Pracownik" Association="Self.Recepcjonista_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Recepcjonista" EntitySet="Recepcjonista" />
+          </AssociationSet>
+          <AssociationSet Name="Trener_Pracownik" Association="Self.Trener_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Trener" EntitySet="Trener" />
+          </AssociationSet>
+          <AssociationSet Name="Trening_Recepcjonista" Association="Self.Trening_Recepcjonista">
+            <End Role="Recepcjonista" EntitySet="Recepcjonista" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="Trening_Trener" Association="Self.Trening_Trener">
+            <End Role="Trener" EntitySet="Trener" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="Trening_TypTreningu" Association="Self.Trening_TypTreningu">
+            <End Role="TypTreningu" EntitySet="TypTreningu" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="TreningKlub_Trening" Association="Self.TreningKlub_Trening">
+            <End Role="Trening" EntitySet="Trening" />
+            <End Role="TreningKlub" EntitySet="TreningKlub" />
+          </AssociationSet>
+          <AssociationSet Name="KlientKarnet" Association="Self.KlientKarnet">
+            <End Role="Karnet" EntitySet="Karnet" />
+            <End Role="Klient" EntitySet="Klient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MASModelStoreContainer" CdmEntityContainer="MASDBEntities">
+          <EntitySetMapping Name="DaneOsobowe">
+            <EntityTypeMapping TypeName="MASModel.DaneOsobowe">
+              <MappingFragment StoreEntitySet="DaneOsobowe">
+                <ScalarProperty Name="IdDaneOsobowe" ColumnName="IdDaneOsobowe" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
+                <ScalarProperty Name="AdresEmail" ColumnName="AdresEmail" />
+                <ScalarProperty Name="TelefonKontaktowy" ColumnName="TelefonKontaktowy" />
+                <ScalarProperty Name="AdresZamieszkania" ColumnName="AdresZamieszkania" />
+                <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instruktor">
+            <EntityTypeMapping TypeName="MASModel.Instruktor">
+              <MappingFragment StoreEntitySet="Instruktor">
+                <ScalarProperty Name="IdInstruktor" ColumnName="IdInstruktor" />
+                <ScalarProperty Name="Pracownik_IdPracownik" ColumnName="Pracownik_IdPracownik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Karnet">
+            <EntityTypeMapping TypeName="MASModel.Karnet">
+              <MappingFragment StoreEntitySet="Karnet">
+                <ScalarProperty Name="NumerKarnetu" ColumnName="NumerKarnetu" />
+                <ScalarProperty Name="RodzajKarnetu" ColumnName="RodzajKarnetu" />
+                <ScalarProperty Name="NazwaKarnetu" ColumnName="NazwaKarnetu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klient">
+            <EntityTypeMapping TypeName="MASModel.Klient">
+              <MappingFragment StoreEntitySet="Klient">
+                <ScalarProperty Name="IdKlient" ColumnName="IdKlient" />
+                <ScalarProperty Name="DaneOsobowe_IdDaneOsobowe" ColumnName="DaneOsobowe_IdDaneOsobowe" />
+                <ScalarProperty Name="RodzajDokumentuOsobistego" ColumnName="RodzajDokumentuOsobistego" />
+                <ScalarProperty Name="ZaswiadczenieOdLekarza" ColumnName="ZaswiadczenieOdLekarza" />
+                <ScalarProperty Name="ZgodaDotyczacaRegulaminuKlubu" ColumnName="ZgodaDotyczacaRegulaminuKlubu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klub">
+            <EntityTypeMapping TypeName="MASModel.Klub">
+              <MappingFragment StoreEntitySet="Klub">
+                <ScalarProperty Name="IdKlub" ColumnName="IdKlub" />
+                <ScalarProperty Name="NazwaKlubu" ColumnName="NazwaKlubu" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="TelefonSluzbowy" ColumnName="TelefonSluzbowy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaszynyWKlubie">
+            <EntityTypeMapping TypeName="MASModel.MaszynyWKlubie">
+              <MappingFragment StoreEntitySet="MaszynyWKlubie">
+                <ScalarProperty Name="NumerIdentyfikacyjny" ColumnName="NumerIdentyfikacyjny" />
+                <ScalarProperty Name="Klub_IdKlub" ColumnName="Klub_IdKlub" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Zastosowanie" ColumnName="Zastosowanie" />
+                <ScalarProperty Name="OstatniaDataKonserwacji" ColumnName="OstatniaDataKonserwacji" />
+                <ScalarProperty Name="ZaplanowanaDataKonserwacji" ColumnName="ZaplanowanaDataKonserwacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownik">
+            <EntityTypeMapping TypeName="MASModel.Pracownik">
+              <MappingFragment StoreEntitySet="Pracownik">
+                <ScalarProperty Name="IdPracownik" ColumnName="IdPracownik" />
+                <ScalarProperty Name="Umowa_IdUmowa" ColumnName="Umowa_IdUmowa" />
+                <ScalarProperty Name="DaneOsobowe_IdDaneOsobowe" ColumnName="DaneOsobowe_IdDaneOsobowe" />
+                <ScalarProperty Name="NumerKontaBankowego" ColumnName="NumerKontaBankowego" />
+                <ScalarProperty Name="IndywidualnaStawkaGodzinowa" ColumnName="IndywidualnaStawkaGodzinowa" />
+                <ScalarProperty Name="LiczbaGodzinPrzepracowanych" ColumnName="LiczbaGodzinPrzepracowanych" />
+                <ScalarProperty Name="Pensja" ColumnName="Pensja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recepcjonista">
+            <EntityTypeMapping TypeName="MASModel.Recepcjonista">
+              <MappingFragment StoreEntitySet="Recepcjonista">
+                <ScalarProperty Name="IdRecepcjonista" ColumnName="IdRecepcjonista" />
+                <ScalarProperty Name="Pracownik_IdPracownik" ColumnName="Pracownik_IdPracownik" />
+                <ScalarProperty Name="IloscWykonanychRezerwacji" ColumnName="IloscWykonanychRezerwacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Szkolenie">
+            <EntityTypeMapping TypeName="MASModel.Szkolenie">
+              <MappingFragment StoreEntitySet="Szkolenie">
+                <ScalarProperty Name="IdSzkolenie" ColumnName="IdSzkolenie" />
+                <ScalarProperty Name="Instruktor_IdInstruktor" ColumnName="Instruktor_IdInstruktor" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="DataSzkolenia" ColumnName="DataSzkolenia" />
+                <ScalarProperty Name="IloscOsob" ColumnName="IloscOsob" />
+                <ScalarProperty Name="CzasTrwania" ColumnName="CzasTrwania" />
+                <ScalarProperty Name="Koszt" ColumnName="Koszt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trener">
+            <EntityTypeMapping TypeName="MASModel.Trener">
+              <MappingFragment StoreEntitySet="Trener">
+                <ScalarProperty Name="IdTrener" ColumnName="IdTrener" />
+                <ScalarProperty Name="Pracownik_IdPracownik" ColumnName="Pracownik_IdPracownik" />
+                <ScalarProperty Name="OferowaneTreningi" ColumnName="OferowaneTreningi" />
+                <ScalarProperty Name="PrawoWykonywaniaZawodu" ColumnName="PrawoWykonywaniaZawodu" />
+                <ScalarProperty Name="ZaswiadczenieONiekaralnosci" ColumnName="ZaswiadczenieONiekaralnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trening">
+            <EntityTypeMapping TypeName="MASModel.Trening">
+              <MappingFragment StoreEntitySet="Trening">
+                <ScalarProperty Name="IdTrening" ColumnName="IdTrening" />
+                <ScalarProperty Name="TypTreningu_IdTypTreningu" ColumnName="TypTreningu_IdTypTreningu" />
+                <ScalarProperty Name="Trener_IdTrener" ColumnName="Trener_IdTrener" />
+                <ScalarProperty Name="Recepcjonista_IdRecepcjonista" ColumnName="Recepcjonista_IdRecepcjonista" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Rodzaj" ColumnName="Rodzaj" />
+                <ScalarProperty Name="Rezerwacja" ColumnName="Rezerwacja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TreningKlub">
+            <EntityTypeMapping TypeName="MASModel.TreningKlub">
+              <MappingFragment StoreEntitySet="TreningKlub">
+                <ScalarProperty Name="Trening_IdTrening" ColumnName="Trening_IdTrening" />
+                <ScalarProperty Name="Klub_IdKlub" ColumnName="Klub_IdKlub" />
+                <ScalarProperty Name="DataTreningu" ColumnName="DataTreningu" />
+                <ScalarProperty Name="DlugoscTreningu" ColumnName="DlugoscTreningu" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypTreningu">
+            <EntityTypeMapping TypeName="MASModel.TypTreningu">
+              <MappingFragment StoreEntitySet="TypTreningu">
+                <ScalarProperty Name="IdTypTreningu" ColumnName="IdTypTreningu" />
+                <ScalarProperty Name="NazwaTypuTreningu" ColumnName="NazwaTypuTreningu" />
+                <ScalarProperty Name="LiczbaSerii" ColumnName="LiczbaSerii" />
+                <ScalarProperty Name="LiczbaPowtorzen" ColumnName="LiczbaPowtorzen" />
+                <ScalarProperty Name="MetodaTreningowa" ColumnName="MetodaTreningowa" />
+                <ScalarProperty Name="AkcesoriaTreningowe" ColumnName="AkcesoriaTreningowe" />
+                <ScalarProperty Name="MaszynyDoTreninguSilowego" ColumnName="MaszynyDoTreninguSilowego" />
+                <ScalarProperty Name="MaszynyCardio" ColumnName="MaszynyCardio" />
+                <ScalarProperty Name="WyposazenieCardioFitness" ColumnName="WyposazenieCardioFitness" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Umowa">
+            <EntityTypeMapping TypeName="MASModel.Umowa">
+              <MappingFragment StoreEntitySet="Umowa">
+                <ScalarProperty Name="IdUmowa" ColumnName="IdUmowa" />
+                <ScalarProperty Name="RodzajUmowy" ColumnName="RodzajUmowy" />
+                <ScalarProperty Name="DataRozpoczeciaUmowy" ColumnName="DataRozpoczeciaUmowy" />
+                <ScalarProperty Name="DataZakonczeniaUmowy" ColumnName="DataZakonczeniaUmowy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="KlientKarnet" TypeName="MASModel.KlientKarnet" StoreEntitySet="KlientKarnet">
+            <EndProperty Name="Karnet">
+              <ScalarProperty Name="NumerKarnetu" ColumnName="NumerKarnetu" />
+            </EndProperty>
+            <EndProperty Name="Klient">
+              <ScalarProperty Name="IdKlient" ColumnName="Klient_IdKlient" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
